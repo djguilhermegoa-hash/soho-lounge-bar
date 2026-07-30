@@ -416,6 +416,150 @@
       text-align: center;
     }
 
+    /* Mantém as categorias paradas e deixa apenas o cardápio rolar. */
+    body {
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+    }
+
+    .app {
+      height: 100vh;
+      height: 100dvh;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .tabs {
+      position: relative;
+      height: 100%;
+      min-height: 0;
+      overscroll-behavior: contain;
+    }
+
+    .content {
+      height: 100%;
+      min-height: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      overscroll-behavior-y: contain;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scroll-behavior: smooth;
+    }
+
+    .promotions {
+      margin-top: 12px;
+      padding: 15px 12px 12px;
+      overflow: hidden;
+      border: 1px solid rgba(240, 215, 157, .55);
+      border-radius: 12px;
+      background:
+        radial-gradient(circle at 100% 0, rgba(214, 169, 97, .2), transparent 35%),
+        linear-gradient(145deg, rgba(125, 22, 24, .98), rgba(35, 10, 8, .99));
+      box-shadow: 0 18px 42px rgba(0, 0, 0, .34);
+    }
+
+    .promotions-title {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 12px;
+      color: var(--gold-soft);
+      font-size: .79rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .promotions-title::before {
+      content: "★";
+      color: var(--gold);
+      font-size: .8rem;
+    }
+
+    .promotion-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .promotion {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      align-content: end;
+      min-width: 0;
+      min-height: 0;
+      aspect-ratio: 1;
+      padding: 7px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 247, 234, .17);
+      border-radius: 9px;
+      font-size: clamp(.58rem, 2.25vw, .76rem);
+      font-weight: 750;
+      line-height: 1.25;
+      background: rgba(20, 7, 5, .72);
+      box-shadow: inset 0 1px rgba(255, 255, 255, .06);
+    }
+
+    .promotion:last-child {
+      border-bottom: 1px solid rgba(255, 247, 234, .17);
+    }
+
+    .promotion-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: .74;
+      transition: transform .3s ease;
+    }
+
+    .promotion::after {
+      position: absolute;
+      inset: 0;
+      content: "";
+      background: linear-gradient(180deg, transparent 24%, rgba(17, 5, 4, .25) 48%, rgba(17, 5, 4, .98) 100%);
+    }
+
+    .promotion-copy {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 3px;
+      text-shadow: 0 2px 8px #000;
+    }
+
+    .promotion-price {
+      color: var(--gold-soft);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(.8rem, 3.15vw, 1.08rem);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .promotion-wide {
+      grid-column: auto;
+      min-height: 0;
+      gap: 3px;
+      padding: 7px;
+      border-color: rgba(240, 215, 157, .4);
+      background:
+        linear-gradient(100deg, rgba(159, 87, 48, .32), transparent),
+        rgba(20, 7, 5, .82);
+    }
+
+    .promotion-highlight {
+      color: var(--gold-soft);
+      font-size: clamp(.55rem, 2.1vw, .72rem);
+      font-weight: 900;
+    }
+
     @media (min-width: 620px) {
       :root {
         --tab-w: 124px;
@@ -473,6 +617,21 @@
       .subsection {
         grid-column: 1 / -1;
       }
+
+      .promotion-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .promotion {
+        min-height: 0;
+        padding: 11px;
+      }
+
+      .promotion:last-child {
+        grid-column: auto;
+        min-height: 0;
+      }
     }
   </style>
 </head>
@@ -495,6 +654,33 @@
           <p>Selecione uma categoria na lateral para visualizar os produtos.</p>
         </div>
       </header>
+
+      <section class="promotions" aria-labelledby="promotionsTitle">
+        <h2 class="promotions-title" id="promotionsTitle">Promoções do dia</h2>
+        <ul class="promotion-list">
+          <li class="promotion">
+            <img class="promotion-photo" src="promocao-baldinho-brahma.jpg" alt="" loading="eager">
+            <span class="promotion-copy">
+              <span>Baldinho Brahma</span>
+              <span class="promotion-price">R$ 36,00</span>
+            </span>
+          </li>
+          <li class="promotion">
+            <img class="promotion-photo" src="promocao-baldinho-praya.jpeg" alt="" loading="eager">
+            <span class="promotion-copy">
+              <span>Baldinho Praya Lager</span>
+              <span class="promotion-price">R$ 48,00</span>
+            </span>
+          </li>
+          <li class="promotion promotion-wide">
+            <img class="promotion-photo" src="promocao-gin-tropical.png" alt="" loading="eager">
+            <span class="promotion-copy">
+              <span>Gin Tropical ou Gin Melancia</span>
+              <span class="promotion-highlight">O 2º pela metade do preço</span>
+            </span>
+          </li>
+        </ul>
+      </section>
 
       <div class="toolbar">
         <div class="section-title">
@@ -631,12 +817,12 @@
               { name: 'Watermelon Suggar', price: 'R$26,00', desc: 'Gin Seagers ou Rocks, melancia e limão siciliano' },
               { name: 'Gin Tônica', price: 'R$26,00', desc: 'Gin Seagers ou Rocks, água tônica e limão siciliano' },
               { name: 'Moscow Mule', price: 'R$26,00', desc: 'Vodka Smirnoff, limão, xarope de açúcar e espuma de gengibre' },
-              { name: 'Aperol Spritz', price: 'R$30,50', desc: 'Aperol, espumante e água com gás' },
+              { name: 'Aperol Spritz', price: 'R$35,00', desc: 'Aperol, espumante e água com gás' },
               { name: 'Negroni', price: 'R$35,00', desc: 'Gin Seagers ou Rocks, Campari e vermute tinto' },
               { name: 'Cosmopolitan', price: 'R$26,00', desc: 'Vodka Smirnoff, Cointreau, cranberry e limão' },
               { name: 'Sex on the Beach', price: 'R$26,00', desc: 'Vodka Smirnoff, licor de pêssego, suco de laranja, cranberry e grenadine' },
               { name: 'Tequila Sunrise', price: 'R$26,00', desc: 'Tequila, suco de laranja e grenadine' },
-              { name: 'Margarita', price: 'R$35,00', desc: 'Tequila, Cointreau e limão' },
+              { name: 'Margarita', price: 'R$30,50', desc: 'Tequila, Cointreau e limão' },
               { name: 'Piña Colada', price: 'R$30,50', desc: 'Rum branco, leite de coco, creme de leite e abacaxi' },
               { name: 'Diablo Azul', price: 'R$26,00', desc: 'Vodka Smirnoff, Curaçau Blue, limão e refrigerante de limão' },
               { name: 'CaipSakê', price: 'R$26,00', desc: 'Saquê, limão e açúcar' },
@@ -664,7 +850,6 @@
               { name: 'Dose Tequila', price: 'R$26,00' },
               { name: 'Dose Red Label', price: 'R$17,00' },
               { name: 'Dose Tanqueray', price: 'R$26,00' },
-              { name: 'Cachaça', price: 'R$10,00' },
               { name: 'Campari', price: 'R$17,00' },
               { name: 'Dose Absolut', price: 'R$26,00' },
               { name: 'Black Label', price: 'R$30,50' },
