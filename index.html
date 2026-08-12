@@ -778,6 +778,163 @@
       font-family: Georgia, "Times New Roman", serif;
     }
 
+    /* Refinamento visual e de navegação */
+    .content {
+      background:
+        radial-gradient(circle at 82% 3%, rgba(214, 169, 97, .08), transparent 24%),
+        linear-gradient(180deg, rgba(255, 247, 234, .018), transparent 38%);
+    }
+
+    .today-promo-heading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      letter-spacing: .09em;
+    }
+
+    .today-promo-heading::before,
+    .today-promo-heading::after {
+      width: min(42px, 12vw);
+      height: 1px;
+      content: "";
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+
+    .today-promo-heading::after {
+      transform: rotate(180deg);
+    }
+
+    .today-card {
+      transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+    }
+
+    .today-card:active {
+      transform: scale(.975);
+    }
+
+    .today-card img {
+      transition: transform .45s ease;
+    }
+
+    .today-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .toolbar {
+      margin: 10px -5px 2px;
+      padding: 12px 5px 13px;
+      border-bottom: 1px solid rgba(240, 215, 157, .14);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .section-title h2 {
+      color: var(--ink);
+      line-height: 1;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, .45);
+    }
+
+    .count {
+      padding: 5px 7px;
+      border: 1px solid rgba(240, 215, 157, .2);
+      border-radius: 999px;
+      background: rgba(214, 169, 97, .08);
+    }
+
+    .search {
+      border-color: rgba(240, 215, 157, .18);
+      box-shadow: inset 0 1px rgba(255, 255, 255, .035), 0 8px 24px rgba(0, 0, 0, .12);
+      transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+    }
+
+    .search:focus-within {
+      border-color: rgba(240, 215, 157, .7);
+      background: rgba(255, 247, 234, .105);
+      box-shadow: 0 0 0 3px rgba(214, 169, 97, .09);
+    }
+
+    .menu-group {
+      animation: menuReveal .32s ease both;
+    }
+
+    @keyframes menuReveal {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .subsection {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .subsection::after {
+      height: 1px;
+      flex: 1;
+      content: "";
+      background: linear-gradient(90deg, rgba(214, 169, 97, .35), transparent);
+    }
+
+    .item {
+      border-color: rgba(255, 255, 255, .085);
+      border-radius: 10px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .item:active {
+      transform: scale(.987);
+    }
+
+    .price {
+      width: fit-content;
+      padding: 4px 7px;
+      border: 1px solid rgba(240, 215, 157, .16);
+      border-radius: 999px;
+      background: rgba(214, 169, 97, .075);
+    }
+
+    .tab {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .tab::after {
+      position: absolute;
+      inset: auto 20% 4px;
+      height: 2px;
+      border-radius: 99px;
+      content: "";
+      opacity: 0;
+      transform: scaleX(.3);
+      background: currentColor;
+      transition: opacity .2s ease, transform .2s ease;
+    }
+
+    .tab[aria-selected="true"]::after {
+      opacity: .55;
+      transform: scaleX(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
+    }
+
     .tab:focus-visible,
     .search:focus-within {
       outline: 2px solid var(--gold-soft);
@@ -885,16 +1042,24 @@
         icon: 'beer',
         groups: [
           {
-            title: 'Long Neck',
+            title: '600ml',
             items: [
-              { name: 'Heineken', price: 'R$10,70' },
-              { name: 'Praya Lager', price: 'R$10,70', desc: 'Sem glúten' }
+              { name: 'Amstel', price: 'R$10,70' },
+              { name: 'Heineken', price: 'R$15,20' }
             ]
           },
           {
             title: '300ml',
             items: [
               { name: 'Brahma 300ml', price: 'R$6,20' }
+            ]
+          },
+          {
+            title: 'Long Neck',
+            items: [
+              { name: 'Heineken', price: 'R$10,70' },
+              { name: 'Praya Lager', price: 'R$10,70', desc: 'Sem glúten' },
+              { name: 'Amstel', price: 'R$8,00' }
             ]
           },
           {
@@ -910,6 +1075,7 @@
       {
         id: 'Bebidas em Lata',
         label: 'Bebidas em Lata',
+        navLabel: 'Latas',
         icon: 'bottle',
         groups: [
           {
@@ -925,6 +1091,7 @@
       {
         id: 'sem-alcool',
         label: 'Sem Álcool',
+        navLabel: 'Sem álcool',
         icon: 'water',
         groups: [
           {
@@ -962,7 +1129,7 @@
               { name: 'Gin Tônica', price: 'R$26,00', desc: 'Gin Seagers ou Rocks, água tônica e limão siciliano' },
               { name: 'Aperol Spritz', price: 'R$35,00', desc: 'Aperol, espumante e água com gás' },
               { name: 'Negroni', price: 'R$35,00', desc: 'Gin Seagers ou Rocks, Campari e vermute tinto' },
-              { name: 'Cosmopolitan', price: 'R$26,00', desc: 'Vodka Smirnoff, Cointreau, cranberry e limão' },
+              { name: 'Cosmopolitan', price: 'R$30,50', desc: 'Vodka Smirnoff, Cointreau, cranberry e limão' },
               { name: 'Sex on the Beach', price: 'R$26,00', desc: 'Vodka Smirnoff, licor de pêssego, suco de laranja, cranberry e grenadine' },
               { name: 'Tequila Sunrise', price: 'R$26,00', desc: 'Tequila, suco de laranja e grenadine' },
               { name: 'Margarita', price: 'R$30,50', desc: 'Tequila, Cointreau e limão' },
@@ -1010,6 +1177,7 @@
       {
         id: 'petiscos',
         label: 'Petiscos e Porções',
+        navLabel: 'Petiscos',
         icon: 'food',
         groups: [
           {
@@ -1075,9 +1243,9 @@
 
     function renderTabs() {
       tabs.innerHTML = categories.map((category) => `
-        <button class="tab" type="button" aria-selected="${category.id === activeId}" data-id="${category.id}">
+        <button class="tab" type="button" aria-selected="${category.id === activeId}" aria-current="${category.id === activeId ? 'page' : 'false'}" data-id="${category.id}">
           ${icons[category.icon]}
-          <span>${category.label}</span>
+          <span>${category.navLabel || category.label}</span>
         </button>
       `).join('');
     }
