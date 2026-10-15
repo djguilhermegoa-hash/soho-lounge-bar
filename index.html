@@ -1023,6 +1023,209 @@
         height: 220px;
       }
     }
+
+    /* Identidade 2026 — bege, terracota e marsala */
+    :root {
+      color-scheme: light;
+      --ink: #3b211b;
+      --muted: #7b6258;
+      --line: rgba(117, 39, 51, .16);
+      --gold: #b76a4d;
+      --gold-soft: #f0d8bd;
+      --brown: #f6ecdc;
+      --mahogany: #6f2634;
+      --marsala: #752733;
+      --bordeaux: #8e3442;
+      --copper: #b45f43;
+      --panel: rgba(255, 250, 242, .92);
+      --tab-w: 96px;
+    }
+
+    html,
+    body {
+      background: #f6ecdc;
+    }
+
+    body {
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 88% 4%, rgba(180, 95, 67, .16), transparent 26rem),
+        linear-gradient(145deg, #fbf5ea 0%, #f3e2cc 55%, #ead2b7 100%);
+    }
+
+    body::before {
+      opacity: .28;
+      background-image: radial-gradient(rgba(117, 39, 51, .18) .65px, transparent .65px);
+      background-size: 13px 13px;
+    }
+
+    .tabs {
+      padding: 14px 9px;
+      border-right: 1px solid rgba(117, 39, 51, .15);
+      background: linear-gradient(180deg, #7a2937 0%, #5e1e2b 100%);
+      box-shadow: 10px 0 30px rgba(75, 26, 29, .09);
+    }
+
+    .brand-mark {
+      width: 74px;
+      height: 70px;
+      border-color: rgba(246, 236, 220, .34);
+      border-radius: 18px;
+      background: rgba(255, 250, 242, .1);
+      box-shadow: inset 0 1px rgba(255,255,255,.14);
+    }
+
+    .brand-mark img {
+      filter: invert(95%) sepia(16%) saturate(427%) hue-rotate(333deg) brightness(104%) contrast(96%);
+    }
+
+    .tab-list { gap: 9px; }
+
+    .tab {
+      min-height: 70px;
+      color: #fff8ee;
+      border-color: rgba(255,255,255,.12);
+      border-radius: 16px;
+      background: rgba(255,255,255,.07);
+    }
+
+    .tab svg { color: #edc7a9; }
+
+    .tab[aria-selected="true"] {
+      color: #612333;
+      border-color: #fff4e5;
+      background: linear-gradient(145deg, #fff8ed, #ecd0b1);
+      box-shadow: 0 10px 24px rgba(50, 10, 20, .2);
+    }
+
+    .tab[aria-selected="true"] svg { color: #a8523d; }
+
+    .content {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 18px 16px 34px;
+    }
+
+    .today-promo { display: none !important; }
+
+    .toolbar {
+      top: 0;
+      z-index: 10;
+      margin: 0 0 18px;
+      padding: 16px;
+      border: 1px solid rgba(117, 39, 51, .15);
+      border-radius: 22px;
+      background: rgba(255, 249, 239, .91);
+      box-shadow: 0 16px 40px rgba(98, 37, 33, .09);
+      backdrop-filter: blur(16px);
+    }
+
+    .section-title h2,
+    .category-heading h2 {
+      color: #752733;
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: -.025em;
+    }
+
+    .count {
+      color: #fff8ee;
+      background: #a6533f;
+    }
+
+    .search {
+      border-color: rgba(117,39,51,.16);
+      border-radius: 14px;
+      background: #fffaf3;
+    }
+
+    .search svg { color: #a6533f; }
+    .search input { color: #3b211b; }
+    .search input::placeholder { color: #90766c; }
+
+    .category-section {
+      margin: 0 0 30px;
+      scroll-margin-top: 142px;
+    }
+
+    .category-heading {
+      margin-bottom: 12px;
+      padding: 0 4px 10px;
+      border-bottom: 2px solid rgba(180,95,67,.28);
+    }
+
+    .category-heading span { color: #8b665a; }
+
+    .subsection {
+      color: #a6533f;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .item {
+      min-height: 112px;
+      border: 1px solid rgba(117,39,51,.13);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(255,253,248,.98), rgba(248,234,216,.94));
+      box-shadow: 0 10px 28px rgba(105,54,39,.07);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px rgba(105,54,39,.11);
+    }
+
+    .name { color: #4b2821; }
+
+    .price {
+      color: #752733;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+    }
+
+    .desc { color: #7b6258; }
+
+    .empty-category {
+      display: grid;
+      min-height: 220px;
+      place-items: center;
+      padding: 28px;
+      border: 1px dashed rgba(117,39,51,.3);
+      border-radius: 22px;
+      color: #7b6258;
+      text-align: center;
+      background: rgba(255,250,242,.62);
+    }
+
+    .empty-category strong {
+      display: block;
+      margin-bottom: 7px;
+      color: #752733;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+    }
+
+    .footer {
+      color: #7b6258;
+      border-color: rgba(117,39,51,.15);
+    }
+
+    @media (max-width: 680px) {
+      :root { --tab-w: 84px; }
+      .content { padding: 12px 10px 28px; }
+      .tabs { padding-inline: 7px; }
+      .brand-mark { width: 66px; height: 64px; }
+      .tab { min-height: 66px; border-radius: 14px; }
+      .toolbar { padding: 13px; border-radius: 18px; }
+      .list { grid-template-columns: 1fr; gap: 10px; }
+      .item { min-height: 96px; border-radius: 16px; }
+    }
   </style>
 </head>
 <body>
@@ -1109,7 +1312,7 @@
       combo: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M7 3h4v18H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path><path d="M13 8h4a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-4V8Z"></path><path d="M14 3h2v5"></path><path d="M5 12h14"></path></svg>'
     };
 
-    const categories = [
+    const legacyCategories = [
       {
         id: 'cervejas',
         label: 'Cervejas e Bebidas',
@@ -1119,8 +1322,8 @@
           {
             title: '600ml',
             items: [
-              { name: 'Amstel', price: 'R$11,70' },
-              { name: 'Heineken', price: 'R$16,20' }
+              { name: 'Amstel', price: 'R$10,70' },
+              { name: 'Heineken', price: 'R$15,20' }
             ]
           },
           {
@@ -1223,9 +1426,9 @@
               { name: 'Piña Colada', price: 'R$30,50', desc: 'Rum branco, leite de coco, creme de leite e abacaxi' },
               { name: 'Diablo Azul', price: 'R$26,00', desc: 'Vodka Smirnoff, Curaçau Blue, limão e refrigerante de limão' },
               { name: 'Fitzgerald', price: 'R$26,00', desc: 'Gin Seagers ou Rocks, limão, xarope de açúcar e Bitter Angostura' },
-              { name: 'Tropical Gin', price: 'R$30,00', desc: 'Gin Seagers ou Rocks, energético tropical e frutas cítricas' },
+              { name: 'Tropical Gin', price: 'R$26,00', desc: 'Gin Seagers ou Rocks, energético tropical e frutas cítricas' },
               { name: 'Tropical Gin com Red Bull', price: 'R$35,00', desc: 'Gin Seagers ou Rocks, energético Red Bull e frutas cítricas' },
-              { name: 'Gin Melancia', price: 'R$30,00', desc: 'Gin Seagers ou Rocks, energético de melancia e especiarias' },
+              { name: 'Gin Melancia', price: 'R$26,00', desc: 'Gin Seagers ou Rocks, energético de melancia e especiarias' },
               { name: 'Gin Melancia com Red Bull', price: 'R$35,00', desc: 'Gin Seagers ou Rocks, energético Red Bull melancia e especiarias' }
             ]
           }
@@ -1304,6 +1507,123 @@
       }
     ];
 
+    const categories = [
+      {
+        id: 'drinks',
+        label: 'Drinks e Coquetéis',
+        navLabel: 'Drinks',
+        icon: 'cocktail',
+        groups: [
+          {
+            title: 'Drinks e Coquetéis',
+            items: [
+              { name: 'Caipirinha', price: 'R$ 21,00' },
+              { name: 'Caipi fruta', price: 'R$ 28,00' },
+              { name: 'Moscow Mule', price: 'R$ 36,00' },
+              { name: 'Gin tropical', price: 'R$ 30,00' },
+              { name: 'Gin melancia', price: 'R$ 30,00' },
+              { name: 'Gin tônica', price: 'R$ 30,00' },
+              { name: 'Gin com Red Bull', price: 'R$ 35,00' },
+              { name: 'Sex on the Beach', price: 'R$ 28,00' },
+              { name: 'Margarita', price: 'R$ 31,00' },
+              { name: 'Aperol', price: 'R$ 35,00' },
+              { name: 'Negroni', price: 'R$ 35,00' },
+              { name: 'Mojito', price: 'R$ 26,00' },
+              { name: 'Garibaldi', price: 'R$ 27,00' },
+              { name: 'Cuba Libre', price: 'R$ 25,00' },
+              { name: 'Soda italiana', price: 'R$ 22,00' },
+              { name: 'Tequila flamejante', price: 'R$ 15,00' },
+              { name: 'GinFizz', price: 'R$ 30,00' },
+              { name: 'Veludo Royale', price: 'R$ 35,00' },
+              { name: 'Cosmopolitan', price: 'R$ 32,00' },
+              { name: 'Tequila Sunrise', price: 'R$ 28,00' },
+              { name: 'Piña colada', price: 'R$ 32,00' },
+              { name: 'Diablo azul', price: 'R$ 28,00' },
+              { name: 'Fitzgerald', price: 'R$ 30,00' }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'cervejas',
+        label: 'Cervejas',
+        icon: 'beer',
+        groups: [
+          {
+            title: 'Cervejas 600 ml',
+            items: [
+              { name: 'Stella 600 ml', price: 'R$ 17,00' },
+              { name: 'Heineken 600 ml', price: 'R$ 17,00' },
+              { name: 'Original Antártica 600 ml', price: 'R$ 15,00' },
+              { name: 'Amstel 600 ml', price: 'R$ 13,00' }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'sem-alcool',
+        label: 'Bebidas sem Álcool',
+        navLabel: 'Sem álcool',
+        icon: 'water',
+        groups: [
+          {
+            title: 'Bebidas sem Álcool',
+            items: [
+              { name: 'Refrigerante (Faz)', price: 'R$ 7,00' },
+              { name: 'H2O Limoneto', price: 'R$ 10,00' },
+              { name: 'Água', price: 'R$ 4,50' },
+              { name: 'Água Mamba com gás', price: 'R$ 7,50' },
+              { name: 'Água Mamba sem gás', price: 'R$ 6,00' }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'porcoes',
+        label: 'Porções e Petiscos',
+        navLabel: 'Porções',
+        icon: 'food',
+        groups: [
+          {
+            title: 'Porções e Petiscos',
+            items: [
+              { name: 'Batata frita simples', price: 'R$ 29,00' },
+              { name: 'Batata frita com bacon e queijo', price: 'R$ 36,00', desc: 'Bacon e queijo' },
+              { name: 'Carne de sol com fritas', price: 'R$ 56,00', desc: 'Carne de sol e batata frita' },
+              { name: 'Carne de sol com mandioca', price: 'R$ 56,00', desc: 'Carne de sol e mandioca' },
+              { name: 'Isca de frango', price: 'R$ 49,00' },
+              { name: 'Linguiça artesanal', price: 'R$ 39,90', desc: 'Farofa de bacon e geleia de pimenta' },
+              { name: 'Molho adicional', price: 'R$ 4,00' }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'pratos',
+        label: 'Pratos à la Carte',
+        navLabel: 'Pratos',
+        icon: 'food',
+        groups: [
+          {
+            title: 'Pratos à la Carte',
+            items: [
+              { name: 'Estrogonofe', price: 'R$ 29,90', desc: 'Arroz e batata palha' },
+              { name: 'Mignon à la creme', price: 'R$ 49,90', desc: 'À la carte' },
+              { name: 'Baião de dois', price: 'R$ 35,00', desc: 'Feijão, arroz, calabresa, muçarela, ovo frito, carne de sol e cebolinha' }
+            ]
+          }
+        ]
+      },
+      {
+        id: 'promocao',
+        label: 'Promoção',
+        navLabel: 'Promoção',
+        icon: 'cocktail',
+        emptyCategory: true,
+        groups: []
+      }
+    ];
+
     const tabs = document.getElementById('tabs');
     const menu = document.getElementById('menu');
     const search = document.getElementById('search');
@@ -1377,14 +1697,21 @@
       const sections = categories.map((category) => {
         const groups = visibleItems(category, search.value);
         const total = groups.reduce((sum, group) => sum + group.items.length, 0);
-        if (!total) return '';
+        if (!total && !category.emptyCategory) return '';
         return `
           <section class="category-section" data-category="${category.id}" data-count="${total}">
             <div class="category-heading">
               <h2>${category.label}</h2>
               <span>${total} ${total === 1 ? 'item' : 'itens'}</span>
             </div>
-            ${groups.map((group) => `
+            ${category.emptyCategory ? `
+              <div class="empty-category" role="status">
+                <div>
+                  <strong>Novidades em breve</strong>
+                  Esta categoria está pronta para receber as próximas promoções do SOHO.
+                </div>
+              </div>
+            ` : groups.map((group) => `
               <section class="menu-group">
                 <h3 class="subsection">${group.title}</h3>
                 <div class="list">
